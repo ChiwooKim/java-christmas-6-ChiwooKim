@@ -1,4 +1,4 @@
-package christmas.domain.event;
+package christmas.domain.event.discount;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
