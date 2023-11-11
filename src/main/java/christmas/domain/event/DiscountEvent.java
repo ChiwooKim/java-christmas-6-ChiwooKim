@@ -2,19 +2,19 @@ package christmas.domain.event;
 
 public interface DiscountEvent {
 
-    public static DiscountEvent getDDayEvent() {
+    public static DDayEvent getDDayEvent() {
         return new DDayEvent();
     }
 
-    public static DiscountEvent getWeekdayEvent() {
+    public static WeekdayEvent getWeekdayEvent() {
         return new WeekdayEvent();
     }
 
-    public static DiscountEvent getWeekendEvent() {
+    public static WeekendEvent getWeekendEvent() {
         return new WeekendEvent();
     }
 
-    public static DiscountEvent getSpecialEvent() {
+    public static SpecialEvent getSpecialEvent() {
         return new SpecialEvent();
     }
 }
