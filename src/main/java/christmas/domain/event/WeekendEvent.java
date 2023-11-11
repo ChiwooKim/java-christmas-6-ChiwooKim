@@ -12,13 +12,13 @@ public class WeekendEvent implements DiscountEvent {
     private static final int MONTH = 12;
     private static final int NON_EVENT_DAY_DISCOUNT_AMOUNT = 0;
 
-    public int discount(int date, int numberOfMainManus) {
+    public int discount(int date, int numberOfMainMenus) {
         LocalDate localDate = LocalDate.of(YEAR, MONTH, date);
         DayOfWeek dayOfWeek = localDate.getDayOfWeek();
         String day = dayOfWeek.getDisplayName(TextStyle.SHORT, Locale.KOREAN);
 
         if (weekend.contains(day)) {
-            return DISCOUNT_AMOUNT_UNIT * numberOfMainManus;
+            return DISCOUNT_AMOUNT_UNIT * numberOfMainMenus;
         }
         return NON_EVENT_DAY_DISCOUNT_AMOUNT;
     }
