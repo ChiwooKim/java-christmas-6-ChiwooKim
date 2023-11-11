@@ -2,8 +2,6 @@ package christmas.domain.event;
 
 public interface DiscountEvent {
 
-    int discount();
-
     public static DiscountEvent getDDayEvent() {
         return new DDayEvent();
     }
