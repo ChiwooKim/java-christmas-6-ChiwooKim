@@ -1,20 +1,25 @@
 package christmas.domain.event;
 
+import java.util.Set;
+
 public interface DiscountEvent {
 
-    public static DDayEvent getDDayEvent() {
+    Set<String> weekday = Set.of("일", "월", "화", "수", "목");
+    Set<String> weekend = Set.of("금", "토");
+
+    static DDayEvent getDDayEvent() {
         return new DDayEvent();
     }
 
-    public static WeekdayEvent getWeekdayEvent() {
+    static WeekdayEvent getWeekdayEvent() {
         return new WeekdayEvent();
     }
 
-    public static WeekendEvent getWeekendEvent() {
+    static WeekendEvent getWeekendEvent() {
         return new WeekendEvent();
     }
 
-    public static SpecialEvent getSpecialEvent() {
+    static SpecialEvent getSpecialEvent() {
         return new SpecialEvent();
     }
 }
