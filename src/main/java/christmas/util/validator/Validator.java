@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 public abstract class Validator {
 
-    public void validateNumber(String input, String regex, String error) {
+    public void validateInputPattern(String input, String regex, String error) {
         Pattern pattern = Pattern.compile(regex);
         if (!pattern.matcher(input).matches()) {
             throw new IllegalArgumentException(error);
