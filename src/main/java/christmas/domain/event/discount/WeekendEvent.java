@@ -12,6 +12,10 @@ public class WeekendEvent implements DiscountEvent {
     private static final int MONTH = 12;
     private static final int NON_EVENT_DAY_DISCOUNT_AMOUNT = 0;
 
+    public String getWeekendEventName() {
+        return "주말 할인";
+    }
+
     public int discount(int date, int numberOfMainMenus) {
         LocalDate localDate = LocalDate.of(YEAR, MONTH, date);
         DayOfWeek dayOfWeek = localDate.getDayOfWeek();
