@@ -16,7 +16,10 @@ class BillTest {
         orderInfo.put("해산물파스타", 2);
         orderInfo.put("레드와인", 1);
         orderInfo.put("초코케이크", 1);
+        bill.calculate(orderInfo);
 
-        assertThat(bill.calculate(orderInfo)).isEqualTo(145000);
+        assertThat(bill.getNumberOfDessert()).isEqualTo(1);
+        assertThat(bill.getNumberOfMain()).isEqualTo(2);
+        assertThat(bill.getTotalAmount()).isEqualTo(145000);
     }
 }
