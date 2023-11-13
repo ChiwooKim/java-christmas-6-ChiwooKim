@@ -12,4 +12,5 @@ public class Constant {
     public static final String DELIMITER_HYPHEN = "-";
     public static final String NUMBER_PATTERN = "^\\d{1,2}$";
     public static final String MENU_INPUT_FORMAT_PATTERN = "\\S{1,}-\\d{1,2}";
+    public static final String AMOUNT_OUTPUT_CONVERT_PATTERN = "\\B(?=(\\d{3})+(?!\\d))";
 }
