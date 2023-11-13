@@ -10,6 +10,10 @@ public class ChampagneEvent implements GiveawayEvent {
     private static final int LESS_THAN_STANDARD_AMOUNT = 0;
     private static final int NO_QUANTITY = 0;
 
+    public String getChampagneEventName() {
+        return "증정 이벤트";
+    }
+
     public Giveaway give(int amount) {
         if (amount >= STANDARD_AMOUNT) {
             return new Giveaway(GIVEAWAY_NAME, GIVEAWAY_AMOUNT, GIVEAWAY_QUANTITY);
