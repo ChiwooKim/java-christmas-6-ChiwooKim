@@ -1,5 +1,7 @@
 package christmas.domain;
 
+import static christmas.util.Constant.*;
+
 import christmas.domain.event.badge.BadgeEvent;
 import christmas.domain.event.discount.DDayEvent;
 import christmas.domain.event.discount.DiscountEvent;
@@ -32,7 +34,8 @@ public class BenefitDetails {
     }
 
     public void receive(int date, Bill bill) {
-        if (bill.getTotalAmount() >= PARTICIPATION_CRITERIA) {
+        if (bill.getTotalAmount() >= PARTICIPATION_CRITERIA &&
+                date >= DATE_MINIMUM_RANGE && date <= DATE_MAXIMUM_RANGE) {
             getDiscountInfo(date, bill);
         }
         getGiveawayInfo(bill);
