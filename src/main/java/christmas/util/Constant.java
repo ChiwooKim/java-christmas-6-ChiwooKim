@@ -7,6 +7,7 @@ public class Constant {
     public static final int MENU_MINIMUM_RANGE = 1;
     public static final int MENU_MAXIMUM_RANGE = 20;
     public static final int TOTAL_NUMBER_OF_MENUS = 20;
+    public static final int DECEMBER = 12;
 
     public static final String DELIMITER_COMMA = ",";
     public static final String DELIMITER_HYPHEN = "-";
