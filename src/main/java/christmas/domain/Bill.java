@@ -4,14 +4,16 @@ import java.util.Map;
 
 public class Bill {
 
+    private static final int INITIAL_VALUE = 0;
+
     private int numberOfDessert;
     private int numberOfMain;
     private int totalAmount;
 
     public Bill() {
-        this.numberOfDessert = 0;
-        this.numberOfMain = 0;
-        this.totalAmount = 0;
+        this.numberOfDessert = INITIAL_VALUE;
+        this.numberOfMain = INITIAL_VALUE;
+        this.totalAmount = INITIAL_VALUE;
     }
 
     public static Bill getBill() {
@@ -19,7 +21,7 @@ public class Bill {
     }
 
     public void calculate(Map<String, Integer> orderInfo) {
-        int totalAmount = 0;
+        int totalAmount = INITIAL_VALUE;
         for (String menu : orderInfo.keySet()) {
             this.totalAmount += getPrice(menu, orderInfo) * orderInfo.get(menu);
         }
@@ -33,7 +35,7 @@ public class Bill {
                 return type.getMenuPrice().get(index);
             }
         }
-        return 0;
+        return INITIAL_VALUE;
     }
 
     private void checkType(Menu type, String menu, Map<String, Integer> orderInfo) {
