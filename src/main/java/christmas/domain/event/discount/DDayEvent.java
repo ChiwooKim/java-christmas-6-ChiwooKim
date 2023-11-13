@@ -8,6 +8,10 @@ public class DDayEvent implements DiscountEvent {
     private static final int NON_EVENT_DAY = 25;
     private static final int NON_EVENT_DAY_DISCOUNT_AMOUNT = 0;
 
+    public String getDDayEventName() {
+        return "크리스마스 디데이 할인";
+    }
+
     public int discount(int date) {
         if (date > NON_EVENT_DAY) {
             return NON_EVENT_DAY_DISCOUNT_AMOUNT;
