@@ -25,6 +25,8 @@ class MenuValidatorTest {
             "해산물파스타-둘", "2-해산물파스타", "해산물 파스타-2"})
     void validateInputPattern(String input) {
         assertThatCode(() -> validator.validate("해산물파스타-2")).doesNotThrowAnyException();
+
+        this.validator = MenuValidator.getValidator();
         assertThatThrownBy(() -> validator
                 .validate(input))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -35,6 +37,8 @@ class MenuValidatorTest {
     @DisplayName("없는 메뉴인지 확인")
     void validateMenu() {
         assertThatCode(() -> validator.validate("초코케이크-2")).doesNotThrowAnyException();
+
+        this.validator = MenuValidator.getValidator();
         assertThatThrownBy(() -> validator
                 .validate("생크림케이크-2"))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -45,6 +49,8 @@ class MenuValidatorTest {
     @DisplayName("메뉴 주문 개수 확인")
     void validateNumber() {
         assertThatCode(() -> validator.validate("초코케이크-2")).doesNotThrowAnyException();
+
+        this.validator = MenuValidator.getValidator();
         assertThatThrownBy(() -> validator
                 .validate("초코케이크-22"))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -56,6 +62,8 @@ class MenuValidatorTest {
     void validateDuplication() {
         assertThatCode(() -> validator.validate("해산물파스타-2,레드와인-1,초코케이크-1"))
                 .doesNotThrowAnyException();
+
+        this.validator = MenuValidator.getValidator();
         assertThatThrownBy(() -> validator
                 .validate("시저샐러드-1,시저샐러드-1"))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -67,6 +75,8 @@ class MenuValidatorTest {
     void validateOnlyBeverage() {
         assertThatCode(() -> validator.validate("해산물파스타-2,레드와인-1,초코케이크-1"))
                 .doesNotThrowAnyException();
+
+        this.validator = MenuValidator.getValidator();
         assertThatThrownBy(() -> validator
                 .validate("제로콜라-2,레드와인-1,샴페인-1"))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -78,6 +88,8 @@ class MenuValidatorTest {
     void validateTotalNumber() {
         assertThatCode(() -> validator.validate("해산물파스타-2,레드와인-1,초코케이크-1"))
                 .doesNotThrowAnyException();
+
+        this.validator = MenuValidator.getValidator();
         assertThatThrownBy(() -> validator
                 .validate("해산물파스타-12,레드와인-11,초코케이크-1"))
                 .isInstanceOf(IllegalArgumentException.class)
