@@ -11,6 +11,10 @@ import java.util.Set;
 
 public class MenuValidator extends Validator {
 
+    public static final String MENU_INPUT_FORMAT_PATTERN = "\\S{1,}-\\d{1,2}";
+    public static final int MENU_MINIMUM_RANGE = 1;
+    public static final int MENU_MAXIMUM_RANGE = 20;
+    public static final int TOTAL_NUMBER_OF_MENUS = 20;
     private final Set<String> checkMenus;
     private int numberOfBeverages;
     private int totalNumber;
