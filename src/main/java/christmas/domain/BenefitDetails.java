@@ -1,7 +1,5 @@
 package christmas.domain;
 
-import static christmas.util.Constant.*;
-
 import christmas.domain.event.badge.BadgeEvent;
 import christmas.domain.event.discount.DDayEvent;
 import christmas.domain.event.discount.DiscountEvent;
@@ -16,13 +14,15 @@ import java.util.List;
 
 public class BenefitDetails {
 
+    private static final int PARTICIPATION_CRITERIA = 10000;
+    private static final int MIN_AMOUNT = 0;
+    public static final int EVENT_START_DAY = 1;
+    public static final int EVENT_LAST_DAY = 31;
     private final List<String> discountNames;
     private final List<Integer> discountAmount;
     private int totalDiscountAmount;
     private String badge;
     private Giveaway giveaway;
-    private static final int PARTICIPATION_CRITERIA = 10000;
-    private static final int MIN_AMOUNT = 0;
 
     public BenefitDetails() {
         this.discountNames = new ArrayList<>();
@@ -35,7 +35,7 @@ public class BenefitDetails {
 
     public void receive(int date, Bill bill) {
         if (bill.getTotalAmount() >= PARTICIPATION_CRITERIA &&
-                date >= DATE_MINIMUM_RANGE && date <= DATE_MAXIMUM_RANGE) {
+                date >= EVENT_START_DAY && date <= EVENT_LAST_DAY) {
             getDiscountInfo(date, bill);
         }
         getGiveawayInfo(bill);
