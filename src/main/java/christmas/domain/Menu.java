@@ -1,6 +1,8 @@
 package christmas.domain;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Stream;
 
 public enum Menu {
 
@@ -9,6 +11,8 @@ public enum Menu {
     DESSERT(List.of("초코케이크", "아이스크림"), List.of(15000, 5000)),
     BEVERAGE(List.of("제로콜라", "레드와인", "샴페인"), List.of(3000, 60000, 25000));
 
+    private static final List<String> ALL_MENU = Stream.of(APPETIZER.menuName, MAIN.menuName,
+            DESSERT.menuName, BEVERAGE.menuName).flatMap(Collection::stream).toList();
     private final List<String> menuName;
     private final List<Integer> menuPrice;
 
@@ -23,5 +27,9 @@ public enum Menu {
 
     public List<Integer> getMenuPrice() {
         return menuPrice;
+    }
+
+    public static boolean isExistMenu(String menu) {
+        return ALL_MENU.contains(menu);
     }
 }
