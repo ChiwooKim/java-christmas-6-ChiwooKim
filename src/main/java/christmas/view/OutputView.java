@@ -7,7 +7,9 @@ import java.util.Map;
 
 public class OutputView {
 
+    public static final String AMOUNT_OUTPUT_CONVERT_PATTERN = "\\B(?=(\\d{3})+(?!\\d))";
     private static final int MIN_AMOUNT = 0;
+    public static final int DECEMBER = 12;
 
     public void printReadDate() {
         System.out.printf(Message.READ_DATE.getMessage(), DECEMBER, DECEMBER);
