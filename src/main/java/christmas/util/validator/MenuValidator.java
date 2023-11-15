@@ -29,6 +29,7 @@ public class MenuValidator extends Validator {
         return new MenuValidator();
     }
 
+    @Override
     public void validate(String input) {
         List<String> menus = Arrays.asList(input.split(DELIMITER_COMMA));
         validateIterator(menus);
