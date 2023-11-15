@@ -12,6 +12,7 @@ public class DateValidator extends Validator {
         return new DateValidator();
     }
 
+    @Override
     public void validate(String input) {
         validateInputPattern(input, DATE_PATTERN, INVALID_DATE.getMessage());
         int date = Integer.parseInt(input);
