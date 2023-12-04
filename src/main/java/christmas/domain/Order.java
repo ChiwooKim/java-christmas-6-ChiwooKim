@@ -4,6 +4,7 @@ import static christmas.exception.EventException.*;
 
 import christmas.domain.menu.Menu;
 import christmas.domain.menu.MenuType;
+import java.util.Collections;
 import java.util.EnumMap;
 import java.util.List;
 
@@ -70,5 +71,9 @@ public class Order {
         if (exist) {
             throw INVALID_ORDER.makeException();
         }
+    }
+
+    public EnumMap<Menu, Integer> getOrder() {
+        return (EnumMap<Menu, Integer>) Collections.unmodifiableMap(order);
     }
 }
