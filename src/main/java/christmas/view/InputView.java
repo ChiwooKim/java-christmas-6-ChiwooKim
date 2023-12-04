@@ -11,8 +11,8 @@ import java.util.stream.Collectors;
 public class InputView {
 
     private static final String DELIMITER = ",";
-    private static final Pattern DATE_PATTERN = Pattern.compile("^\\d{1,2}$");
-    private static final Pattern MENU_PATTERN = Pattern.compile("\\S\\d+-\\d{1,2}");
+    private static final Pattern DATE_PATTERN = Pattern.compile("^[0-9]{1,2}$");
+    private static final Pattern MENU_PATTERN = Pattern.compile("[0-9a-zA-Z가-힣]+-[0-9]{1,2}");
 
     public int readDate() {
         String date = input();
