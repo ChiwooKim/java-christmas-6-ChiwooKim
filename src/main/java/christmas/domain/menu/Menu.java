@@ -30,12 +30,16 @@ public enum Menu {
         this.price = price;
     }
 
-    public static Menu from(String menuName) {
+    public Menu from(String menuName) {
         return Arrays.stream(Menu.values())
                 .filter(menu -> menu.name.equals(menuName))
                 .findAny()
                 .orElseThrow(() ->
                         new IllegalArgumentException(EventException.INVALID_MENU.getMessage()));
+    }
+
+    public boolean isDrink(MenuType type) {
+        return this.type.equals(type);
     }
 
     public MenuType getType() {
