@@ -30,7 +30,7 @@ public enum Menu {
         this.price = price;
     }
 
-    public Menu from(String menuName) {
+    public static Menu from(String menuName) {
         return Arrays.stream(Menu.values())
                 .filter(menu -> menu.name.equals(menuName))
                 .findAny()
