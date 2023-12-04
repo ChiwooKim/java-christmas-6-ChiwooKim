@@ -1,8 +1,10 @@
 package christmas.controller;
 
 import christmas.domain.EventDay;
+import christmas.domain.Order;
 import christmas.view.InputView;
 import christmas.view.OutputView;
+import java.util.List;
 
 public class EventController {
 
@@ -16,6 +18,7 @@ public class EventController {
 
     public void hold() {
         EventDay eventDay = getEventDay();
+        Order order = getMenus();
     }
 
     private EventDay getEventDay() {
@@ -24,6 +27,18 @@ public class EventController {
             try {
                 int date = inputView.readDate();
                 return EventDay.from(date);
+            } catch (IllegalArgumentException e) {
+                outputView.printErrorMessage(e);
+            }
+        }
+    }
+
+    private Order getMenus() {
+        outputView.printReadMenu();
+        while (true) {
+            try {
+                List<String> menus = inputView.readMenus();
+                return Order.from(menus);
             } catch (IllegalArgumentException e) {
                 outputView.printErrorMessage(e);
             }
