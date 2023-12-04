@@ -1,22 +1,36 @@
 package christmas.view;
 
+import static christmas.exception.EventException.*;
+
 import camp.nextstep.edu.missionutils.Console;
-import christmas.util.validator.DateValidator;
+import java.util.Arrays;
+import java.util.List;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class InputView {
 
+    private static final String DELIMITER = ",";
+    private static final Pattern DATE_PATTERN = Pattern.compile("^\\d{1,2}$");
+    private static final Pattern MENU_PATTERN = Pattern.compile("\\S\\d+-\\d{1,2}");
+
     public int readDate() {
-        DateValidator validator = new DateValidator();
-        while (true) {
-            try {
-                System.out.printf(ViewMessage.READ_DATE.getMessage());
-                String date = input();
-                validator.validate(date);
-                return Integer.parseInt(date);
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-            }
+        String date = input();
+        if (!DATE_PATTERN.matcher(date).matches()) {
+            throw INVALID_DATE.makeException();
         }
+        return Integer.parseInt(date);
+    }
+
+    public List<String> readMenus() {
+        return Arrays
+                .stream(input().split(DELIMITER))
+                .peek(menu -> {
+                    if (!MENU_PATTERN.matcher(menu).matches()) {
+                        throw INVALID_MENU.makeException();
+                    }
+                })
+                .collect(Collectors.toList());
     }
 
     private String input() {
