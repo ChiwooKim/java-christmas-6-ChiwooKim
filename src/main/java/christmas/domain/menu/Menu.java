@@ -1,5 +1,8 @@
 package christmas.domain.menu;
 
+import christmas.exception.EventException;
+import java.util.Arrays;
+
 public enum Menu {
     MUSHROOM_SOUP(MenuType.APPETIZER, "양송이수프", 6_000),
     TAPAS(MenuType.APPETIZER, "타파스", 5_500),
@@ -25,6 +28,14 @@ public enum Menu {
         this.type = type;
         this.name = name;
         this.price = price;
+    }
+
+    public static Menu from(String menuName) {
+        return Arrays.stream(Menu.values())
+                .filter(menu -> menu.name.equals(menuName))
+                .findAny()
+                .orElseThrow(() ->
+                        new IllegalArgumentException(EventException.INVALID_MENU.getMessage()));
     }
 
     public MenuType getType() {
