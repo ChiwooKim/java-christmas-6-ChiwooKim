@@ -5,8 +5,8 @@ import java.time.LocalDate;
 
 public class EventDay {
 
-    public static final int DATE_MIN_RANGE = 1;
-    public static final int DATE_MAX_RANGE = 31;
+    private static final int DATE_MIN_RANGE = 1;
+    private static final int DATE_MAX_RANGE = 31;
     private static final int YEAR = 2023;
     private static final int MONTH = 12;
     private final LocalDate localDate;
