@@ -42,6 +42,10 @@ public enum Menu {
         return this.type.equals(type);
     }
 
+    public boolean isType(MenuType type) {
+        return this.type.equals(type);
+    }
+
     public MenuType getType() {
         return type;
     }
