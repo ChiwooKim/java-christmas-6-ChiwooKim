@@ -13,10 +13,10 @@ public enum ViewMessage {
     AMOUNT_OF_PAYMENT("%n<할인 후 예상 결제 금액>%n"),
     EVENT_BADGE("%n<%d월 이벤트 배지>%n"),
     NAME_AND_NUMBER("%s %d개%n"),
-    CURRENCY_UNIT("%s원%n"),
-    MINUS_CURRENCY_UNIT("-%s원%n"),
-    NAME_AND_CURRENCY_UNIT("%s: -%s원%n"),
-    NONE("없음");
+    CURRENCY_UNIT("%,d원%n"),
+    MINUS_CURRENCY_UNIT("-%,d원%n"),
+    NAME_AND_CURRENCY_UNIT("%s: -%,d원%n"),
+    NONE("없음%n");
 
     private final String message;
 
