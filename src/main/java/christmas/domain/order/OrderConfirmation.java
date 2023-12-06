@@ -1,6 +1,6 @@
-package christmas.domain.menu;
+package christmas.domain.order;
 
-import christmas.domain.Order;
+import christmas.domain.order.Order;
 import java.util.List;
 
 public class OrderConfirmation {

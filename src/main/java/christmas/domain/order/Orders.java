@@ -1,10 +1,9 @@
-package christmas.domain;
+package christmas.domain.order;
 
 import static christmas.exception.EventException.*;
 
 import christmas.domain.menu.Menu;
 import christmas.domain.menu.MenuType;
-import christmas.domain.menu.OrderConfirmation;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.stream.Collectors;
