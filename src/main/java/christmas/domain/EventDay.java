@@ -25,4 +25,8 @@ public class EventDay {
             throw EventException.INVALID_DATE.makeException();
         }
     }
+
+    public LocalDate getLocalDate() {
+        return localDate;
+    }
 }
